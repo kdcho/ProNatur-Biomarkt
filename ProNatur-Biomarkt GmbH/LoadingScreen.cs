@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProNatur_Biomarkt_GmbH
@@ -31,7 +24,16 @@ namespace ProNatur_Biomarkt_GmbH
             labelLoadingProgress.Text = loadingBarValue.ToString() + "%";
             progressBarLoading.Value = loadingBarValue;
 
-            if(loadingBarValue >= progressBarLoading.Maximum) loadingbarTimer.Stop();
+            if (loadingBarValue >= progressBarLoading.Maximum)
+            {
+                loadingbarTimer.Stop();
+
+                MainMenuScreen mainMenuScreen = new MainMenuScreen();
+                mainMenuScreen.Show();
+
+                this.Hide();
+
+            }
         }
 
     }
